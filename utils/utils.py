@@ -23,7 +23,17 @@ def plot_training(H, plotPath):
 
 
 def read_data():
-    trdata = ImageDataGenerator()
+    trdata = ImageDataGenerator(
+        horizontal_flip=True,
+        brightness_range=[0.3,1.0], 
+        zoom_range=0.2,
+        rotation_range=20, 
+        shear_range=0.2,
+        width_shift_range=0.2,
+        height_shift_range=0.2,
+        fill_mode='nearest'
+    )
+    
     train_data = trdata.flow_from_directory(directory="data/train",target_size=(224,224))
     tsdata = ImageDataGenerator()
     test_data = tsdata.flow_from_directory(directory="data/test", target_size=(224,224))
