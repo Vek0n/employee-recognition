@@ -47,4 +47,4 @@ class NeuralNetwork:
         img = np.asarray(image).astype('float32')
         img = np.expand_dims(img, axis=0)
         preds = model.predict(img)
-        print(preds[0])
+        return preds[0]

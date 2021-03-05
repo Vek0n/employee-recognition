@@ -11,7 +11,6 @@ LEARNING_RATE = 0.0001
 FEATURE_VECTOR_DIM = 4096
 NUMBER_OF_CLASSES = 4
 
-
 PLOT_PATH = os.path.sep.join(["plots", "plot.png"])
 MODEL_PATH = os.path.sep.join(["models", "model.h5"])
 

@@ -4,7 +4,7 @@ from utils import config
 def main():
 
     y = EmployeeIdentifier()
-    y.identify_employees_on_frame(config.CAM_1_URL)
+    print(y.identify_employees_on_frame(config.CAM_1_URL))
     # x = NeuralNetwork()
     # x.train_network()
 

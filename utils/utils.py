@@ -1,11 +1,9 @@
-# import tensorflow.keras.backend as K
 import matplotlib.pyplot as plt
 from utils import config
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
-
 
 
 def plot_training(H, plotPath):
@@ -33,7 +31,6 @@ def read_training_data():
         height_shift_range=0.2,
         fill_mode='nearest'
     )
-    
     train_data = trdata.flow_from_directory(directory="data/train",target_size=(224,224))
     tsdata = ImageDataGenerator()
     test_data = tsdata.flow_from_directory(directory="data/test", target_size=(224,224))
@@ -46,11 +43,3 @@ def configure_gpu():
     config.gpu_options.allow_growth = True
     config.gpu_options.per_process_gpu_memory_fraction = 0.8
     session = InteractiveSession(config=config)
-    
-
-
-def main():
-    read_data()
-
-if __name__ == "__main__":
-    main()
