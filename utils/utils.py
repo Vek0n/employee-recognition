@@ -22,7 +22,7 @@ def plot_training(H, plotPath):
     plt.savefig(plotPath)
 
 
-def read_data():
+def read_training_data():
     trdata = ImageDataGenerator(
         horizontal_flip=True,
         brightness_range=[0.3,1.0], 
