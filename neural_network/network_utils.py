@@ -3,8 +3,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 from PIL import Image
-from config import TRAINING_DATA_PATH
-from config import TEST_DATA_PATH
+import neural_network.network_config as config
 
 def plot_training(H, plotPath):
     plt.style.use("ggplot")
@@ -22,23 +21,27 @@ def plot_training(H, plotPath):
 
 def read_training_data():
     trdata = ImageDataGenerator(
-        horizontal_flip=True,
-        brightness_range=[0.3,1.0], 
-        zoom_range=0.2,
-        rotation_range=20, 
-        shear_range=0.2,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        fill_mode='nearest'
+        horizontal_flip = config.HORIZONTAL_FLIP,
+        brightness_range = config.BRIGHTNESS_RANGE, 
+        zoom_range = config.ZOOM_RANGE,
+        rotation_range = config.ROTATION_RANGE, 
+        shear_range = config.SHEAR_RANGE,
+        width_shift_range = config.WIDTH_SHIFT_RANGE,
+        height_shift_range = config.HEIGHT_SHIFT_RANGE,
+        fill_mode = config.FILL_MODE 
     )
-    train_data = trdata.flow_from_directory(directory=TRAINING_DATA_PATH,target_size=(224,224))
+    train_data = trdata.flow_from_directory(
+        directory=config.TRAINING_DATA_PATH, target_size = config.IMG_DIM
+    )
     tsdata = ImageDataGenerator()
-    test_data = tsdata.flow_from_directory(directory=TEST_DATA_PATH, target_size=(224,224))
+    test_data = tsdata.flow_from_directory(
+        directory=config.TEST_DATA_PATH, target_size = config.IMG_DIM
+    )
     return train_data, test_data
 
 
 def configure_gpu():
-    config = ConfigProto()
-    config.gpu_options.allow_growth = True
-    config.gpu_options.per_process_gpu_memory_fraction = 0.8
-    session = InteractiveSession(config=config)
+    conf = ConfigProto()
+    conf.gpu_options.allow_growth = True
+    conf.gpu_options.per_process_gpu_memory_fraction = config.PER_PROCESS_GPU_MEMORY_FRACTION
+    session = InteractiveSession(config=conf)

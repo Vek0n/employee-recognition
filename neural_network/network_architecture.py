@@ -7,8 +7,8 @@ from tensorflow.keras.layers import GlobalAveragePooling2D
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Flatten
-from config import FEATURE_VECTOR_DIM
-from config import NUMBER_OF_CLASSES
+from .network_config import FEATURE_VECTOR_DIM
+from .network_config import NUMBER_OF_CLASSES
 
 
 def build_model(inputShape, embeddingDim=FEATURE_VECTOR_DIM, numberOfClasses=NUMBER_OF_CLASSES):

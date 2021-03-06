@@ -1,4 +1,4 @@
-import config
+import neural_network.network_config as config
 import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.optimizers import SGD
@@ -28,8 +28,8 @@ class NeuralNetwork:
         model = build_model(config.IMG_SHAPE)
 
         opt = SGD(learning_rate=config.LEARNING_RATE)
-        model.compile(loss="categorical_crossentropy", optimizer=opt,
-            metrics=["accuracy"])
+        model.compile(loss=config.LOSS_FUNCTION, optimizer=opt,
+            metrics=[config.METRICS])
 
         history = model.fit_generator(
             generator=train_data,

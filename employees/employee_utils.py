@@ -1,5 +1,5 @@
-def read_coords_file():
-    with open('cam1.coords', 'r') as reader:
+def read_coords_file(cam_id):
+    with open('cam{}.coords'.format(cam_id), 'r') as reader:
         raw_data = reader.readlines()
     lines = []
     for i in raw_data:
