@@ -1,13 +1,13 @@
 ﻿# employee_recognition
  
  ### NeuralNetwork() class
-- `train_network()` - starts training of neural netowork, with data from `neural_network/data/` directory, using hyperparameters declared in `network_config.py`
+- `train_network()` - starts training of neural netowork with data from `neural_network/data/` directory, with hyperparameters declared in `network_config.py`
  
  ### EmployeeInitializer(cam_url, cam_id, employee_id) class
-- `save_employee_photo()` - saves one cropped image of employee in `neural_netowrk/data/train/{employee_id}/` directory, from current frame of a livestream at `cam_url`. With every call of this method image names are incrementing like so: `{employee_id}_{iterator}`
+- `save_employee_photo()` - saves one cropped image of employee in `neural_netowrk/data/train/{employee_id}/` directory from current frame of a livestream at `cam_url`. With every call of this method image names are incremented like so: `{employee_id}_{iterator}`
 
  ### EmployeeIdentifier(cam_url, cam_id) class
- - `identify_employees_on_frame()` - this method returns list of vectors, each vector corresponds to one detected person on the frame, and contains probabilities of being in given class. By class it is meant `employee_id`.
+ - `identify_employees_on_frame()` - this method returns list of vectors. Each vector corresponds to one detected person on the frame and contains probabilities of being in given class. By class it is meant `employee_id`.
  
  **Example:**
  
@@ -17,7 +17,7 @@
  
  
  ### How to sort training data
- To start training place data in `data` directory:
+ To start training place data in `neural_network/data/` directory:
  ```
  data
  |------train
