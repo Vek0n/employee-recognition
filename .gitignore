@@ -2,4 +2,4 @@
 /data/train
 /data/temp
 /models/model.h5
-main.py
+.main.py
