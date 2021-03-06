@@ -24,3 +24,5 @@ class EmployeeInitializer:
             ), crop_img
         )
         self.count+=1
+
+    
