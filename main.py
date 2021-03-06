@@ -12,7 +12,7 @@ def main():
     # x = NeuralNetwork()
     # x.train_network()
     
-    x = EmployeeInitializer(CAM_1_URL,1 ,0)
+    x = EmployeeInitializer(CAM_1_URL, cam_id = 1 ,employee_id = 3)
     x.save_employee_photo()
 
 if __name__ == "__main__":

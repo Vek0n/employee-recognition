@@ -20,7 +20,12 @@ class EmployeeInitializer:
             crop_img = frame[y:y+h, x:x+w]
             cv2.imwrite(
                 os.path.sep.join(
-                    ["neural_network", "data", "temp", '{}_{}.jpg'.format(self.employee_id, self.count)]
+                    ["neural_network", 
+                    "data", 
+                    "train", 
+                    str(self.employee_id), 
+                    '{}_{}.jpg'.format(self.employee_id, self.count)
+                    ]
                 ), crop_img
             )
             self.count+=1
