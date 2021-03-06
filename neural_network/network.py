@@ -1,19 +1,18 @@
-from utils.network import build_model
-from utils import config
-from utils import utils
-from tensorflow.keras.optimizers import SGD
+import config
 import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras.optimizers import SGD
 from tensorflow.keras import backend as K
 from imutils.paths import list_images
-import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
-
+from .network_utils import plot_training, read_training_data, configure_gpu
+from .network_architecture import build_model
 
 class NeuralNetwork:
 
     def __init__(self):
         np.set_printoptions(suppress=True)
-        utils.configure_gpu()
+        configure_gpu()
         K.clear_session()
 
 
@@ -24,7 +23,7 @@ class NeuralNetwork:
 
 
     def train_network(self):
-        train_data, test_data = utils.read_training_data()
+        train_data, test_data = read_training_data()
 
         model = build_model(config.IMG_SHAPE)
 
@@ -40,7 +39,7 @@ class NeuralNetwork:
             epochs=config.EPOCHS
         )
         model.save_weights(config.MODEL_PATH) #TF == 2.0.0
-        utils.plot_training(history, config.PLOT_PATH)
+        plot_training(history, config.PLOT_PATH)
 
 
     def get_predictions_for_image(self, image, model):

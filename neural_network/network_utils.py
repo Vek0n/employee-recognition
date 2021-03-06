@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
-from utils import config
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from PIL import Image
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
+from PIL import Image
 
 
 def plot_training(H, plotPath):

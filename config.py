@@ -14,4 +14,6 @@ NUMBER_OF_CLASSES = 4
 PLOT_PATH = os.path.sep.join(["plots", "plot.png"])
 MODEL_PATH = os.path.sep.join(["models", "model.h5"])
 
-CAM_1_URL = "http://192.168.1.95:8081/video"
+CAM_1_URL = "http://192.168.1.16:8081/video"
+
+# TEMP_TRAIN_DATA_PATH =
