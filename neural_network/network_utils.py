@@ -3,7 +3,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 from PIL import Image
-
+from config import TRAINING_DATA_PATH
+from config import TEST_DATA_PATH
 
 def plot_training(H, plotPath):
     plt.style.use("ggplot")
@@ -30,10 +31,9 @@ def read_training_data():
         height_shift_range=0.2,
         fill_mode='nearest'
     )
-    train_data = trdata.flow_from_directory(directory="data/train",target_size=(224,224))
+    train_data = trdata.flow_from_directory(directory=TRAINING_DATA_PATH,target_size=(224,224))
     tsdata = ImageDataGenerator()
-    test_data = tsdata.flow_from_directory(directory="data/test", target_size=(224,224))
- 
+    test_data = tsdata.flow_from_directory(directory=TEST_DATA_PATH, target_size=(224,224))
     return train_data, test_data
 
 

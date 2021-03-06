@@ -14,8 +14,6 @@ def main():
     
     x = EmployeeInitializer(CAM_1_URL, "0")
     x.save_employee_photo()
-    x.save_employee_photo()
-    x.save_employee_photo()
 
 if __name__ == "__main__":
     main()

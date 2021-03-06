@@ -16,13 +16,12 @@ class EmployeeInitializer:
     def save_employee_photo(self):
         ret, frame = self.cap.read()
         lines = read_coords_file()
-        x,y,w,h = get_boundingbox_coords(lines[0])
-        crop_img = frame[y:y+h, x:x+w]
-        cv2.imwrite(
-            os.path.sep.join(
-                ["data", "temp", '{}_{}.jpg'.format(self.id, self.count)]
-            ), crop_img
-        )
-        self.count+=1
-
-    
+        if lines:
+            x,y,w,h = get_boundingbox_coords(lines[0]) #opakowac
+            crop_img = frame[y:y+h, x:x+w]
+            cv2.imwrite(
+                os.path.sep.join(
+                    ["neural_network", "data", "temp", '{}_{}.jpg'.format(self.id, self.count)]
+                ), crop_img
+            )
+            self.count+=1

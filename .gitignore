@@ -1,5 +1,5 @@
-/data/test
-/data/train
-/data/temp
-/models/model.h5
+/neural_network/data/test
+/neural_network/data/train
+/neural_network/data/temp
+/neural_network/models/model.h5
 main.py
