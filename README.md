@@ -16,7 +16,7 @@
  *What does it mean:* In the current frame there are two employees: first one is `employee_id = 2` and second is `employee_id = 0`.
  
  
- ### How to sort data
+ ### How to sort training data
  To start training place data in `data` directory:
  ```
  data
