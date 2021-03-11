@@ -6,7 +6,7 @@ IMG_SHAPE = (IMG_SIZE, IMG_SIZE, 3)
 
 #Training hyperparameters
 BATCH_SIZE = 8
-EPOCHS = 5
+EPOCHS = 20
 STEPS_PER_EPOCH = 100
 VALIDATION_STEPS = 10
 LEARNING_RATE = 0.0001
@@ -17,7 +17,7 @@ METRICS = "accuracy"
 
 #Data augmentation
 HORIZONTAL_FLIP = True
-BRIGHTNESS_RANGE = [0.3,1.0]
+BRIGHTNESS_RANGE = [0.8,1.0]
 ZOOM_RANGE = 0.2
 ROTATION_RANGE = 20
 SHEAR_RANGE = 0.2
@@ -32,4 +32,4 @@ TRAINING_DATA_PATH = os.path.sep.join(["neural_network", "data", "train"])
 TEST_DATA_PATH = os.path.sep.join(["neural_network", "data", "test"])
 
 #Misc
-PER_PROCESS_GPU_MEMORY_FRACTION = 0.8
+PER_PROCESS_GPU_MEMORY_FRACTION = 0.9

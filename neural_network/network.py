@@ -31,11 +31,9 @@ class NeuralNetwork:
         model.compile(loss=config.LOSS_FUNCTION, optimizer=opt,
             metrics=[config.METRICS])
 
-        history = model.fit_generator(
-            generator=train_data,
+        history = model.fit(
+            x=train_data,
             validation_data=test_data,
-            steps_per_epoch=config.STEPS_PER_EPOCH,
-            validation_steps=config.VALIDATION_STEPS,
             epochs=config.EPOCHS
         )
         model.save_weights(config.MODEL_PATH) #TF == 2.0.0
