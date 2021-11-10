@@ -5,8 +5,12 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras import backend as K
 from imutils.paths import list_images
 from tensorflow.keras.preprocessing import image
+import tensorflow as tf
 from .network_utils import plot_training, read_training_data, configure_gpu
 from .network_architecture import build_model
+import cv2
+import gc
+
 
 class NeuralNetwork:
 
@@ -43,5 +47,8 @@ class NeuralNetwork:
     def get_predictions_for_image(self, image, model):
         img = np.asarray(image).astype('float32')
         img = np.expand_dims(img, axis=0)
-        preds = model.predict(img)
+        # preds = model(tf.convert_to_tensor(img))
+        preds = model.predict_on_batch(img)
+        K.clear_session()
+        gc.collect()
         return preds[0]

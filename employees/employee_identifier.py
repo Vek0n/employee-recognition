@@ -14,16 +14,19 @@ class EmployeeIdentifier:
 
     def identify_employees_on_frame(self):
         list_of_predictions = []
-        cap = cv2.VideoCapture(self.cam_url)
-        ret, frame = cap.read()
-        lines = read_coords_file(self.cam_id)
+        # cap = cv2.VideoCapture(self.cam_url)
+        # ret, frame = cap.read()
+        lines = [0] 
+        # lines = read_coords_file(self.cam_id)
         if lines:
             for l in lines:
-                x,y,w,h = get_boundingbox_coords(l)
-                crop_img = frame[y:y+h, x:x+w]
+                # x,y,w,h = get_boundingbox_coords(l)
+                crop_img = cv2.imread("img.jpg")
+                # crop_img = frame[y:y+h, x:x+w] 
                 crop_img = cv2.resize(crop_img, IMG_DIM)
+                crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB)
                 list_of_predictions.append(
                     self.nn.get_predictions_for_image(crop_img, self.model)
                 )
-        cap.release()
+        # cap.release()
         return list_of_predictions
